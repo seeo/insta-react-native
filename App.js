@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {StyleSheet, View} from 'react-native';
-import InstaClone from "./src/client/components/InstaClone.jsx";
+import InstaClone from './src/client/components/InstaClone.js';
 
 // const instructions = Platform.select({
 //   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -9,7 +9,7 @@ import InstaClone from "./src/client/components/InstaClone.jsx";
 //     'Shake or press menu button for dev menu',
 // });
 
-export default class App extends Component {
+class App extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -27,3 +27,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5FCFF',
   }
 });
+
+export default App
