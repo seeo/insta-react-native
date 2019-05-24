@@ -11,11 +11,13 @@ class InstaClone extends Component{
         }
 
     render(){
-
+        //did a Math.floor because want to remove long decimals which are messing up our query to the Turbo360 API
+        const imageHeight = Math.floor(this.state.screenWidth*1.1);
         const imageUri =
         "https://lh3.googleusercontent.com/FAr81UhFiTHfZokqKPnDOy1NSKa1bZNETqCPg9QEnF_1vkXSPTCRSXZUIUYaCfAQ_Z8ois6SD9eArsxAllSiOSiteQ" +
         "=s"+
-        this.state.screenWidth;
+        imageHeight;
+        //alert(imageHeight);
 
         return(
             <View style = {{flex: 1, width: 100 + "%", height: 100 + "%"}}>
