@@ -1,8 +1,22 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet, Image, Dimensions} from 'react-native';
 
 class InstaClone extends Component{
+
+    constructor(props){
+        super(props);
+            this.state = {
+                screenWidth: Dimensions.get("window").width,
+            }
+        }
+
     render(){
+
+        const imageUri =
+        "https://lh3.googleusercontent.com/FAr81UhFiTHfZokqKPnDOy1NSKa1bZNETqCPg9QEnF_1vkXSPTCRSXZUIUYaCfAQ_Z8ois6SD9eArsxAllSiOSiteQ" +
+        "=s"+
+        this.state.screenWidth;
+
         return(
             <View style = {{flex: 1, width: 100 + "%", height: 100 + "%"}}>
                 <View style = {styles.tempNav}>
@@ -16,17 +30,15 @@ class InstaClone extends Component{
                                 uri: "https://lh3.googleusercontent.com/BzQF0oy3bpkjYFt5VwbprUgPifCl5lLFdD9nLk1vsWCLEfxuKO42OEgkiOow-TcsZ1CmoCPwz7xhbSoMg5yY7bxN"
                             }}
                         />
-                        <Text style ={{marginHorizontal: 5}}>
-                            Siang Ee
-                        </Text>
+                        <Text style ={{marginLeft: 10}}>Siang Ee</Text>
                     </View>
-                    <View>
-                        <Text>some ... go here, clickable</Text>
+                    <View style = {{alignItems: "center"}}>
+                        <Text style={{fontSize: 30}}>...</Text>
                     </View>
                 </View>
                 <Image
-                    style = {{width: 100 + "%", height: 100}}
-                    source = {{uri: "https://lh3.googleusercontent.com/FAr81UhFiTHfZokqKPnDOy1NSKa1bZNETqCPg9QEnF_1vkXSPTCRSXZUIUYaCfAQ_Z8ois6SD9eArsxAllSiOSiteQ"}}
+                    style = {{width: this.state.screenWidth, height: 400}}
+                    source = {{uri: imageUri}}
                 />
             </View>
         );
@@ -50,8 +62,8 @@ const styles = StyleSheet.create({
         height: 50,
         backgroundColor: "rgb(255,255,255)",
         flexDirection: "row",
-        marginHorizontal: 15,
-        alignItems: "flex-end"
+        paddingHorizontal: 15,
+        justifyContent: "space-between",
     },
 
     userPic: {
