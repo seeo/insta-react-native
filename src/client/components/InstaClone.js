@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, Image, Dimensions} from 'react-native';
+import config from '../../config/index.js';
 
 class InstaClone extends Component{
 
@@ -14,10 +15,10 @@ class InstaClone extends Component{
         //did a Math.floor because want to remove long decimals which are messing up our query to the Turbo360 API
         const imageHeight = Math.floor(this.state.screenWidth*1.1);
         const imageUri =
-        "https://lh3.googleusercontent.com/FAr81UhFiTHfZokqKPnDOy1NSKa1bZNETqCPg9QEnF_1vkXSPTCRSXZUIUYaCfAQ_Z8ois6SD9eArsxAllSiOSiteQ" +
+        "https://lh3.googleusercontent.com/FAr81UhFiTHfZokqKPnDOy1NSKa1bZNETqCPg9QEnF_1vkXSPTCRSXZUIUYaCfAQ_Z8ois6SD9eArsxAllSiOSiteQ"+
         "=s"+
-        imageHeight;
-        //alert(imageHeight);
+        imageHeight+
+        "-c";
 
         return(
             <View style = {{flex: 1, width: 100 + "%", height: 100 + "%"}}>
@@ -39,9 +40,14 @@ class InstaClone extends Component{
                     </View>
                 </View>
                 <Image
-                    style = {{width: this.state.screenWidth, height: 400}}
+                    style = {{width: this.state.screenWidth, height: 325}}
                     source = {{uri: imageUri}}
                 />
+                <View style={styles.iconBar}>
+                    <Image style = {styles.icon} source = {config.images.heartIcon} />
+                    <Image style = {styles.icon} source = {config.images.chatIcon} />
+                    <Image style = {styles.icon} source = {config.images.forwardIcon} />
+                </View>
             </View>
         );
     }
@@ -61,7 +67,7 @@ const styles = StyleSheet.create({
 
     userBar: {
         width: 100 + "%",
-        height: 50,
+        height: config.styleConstants.rowHeight,
         backgroundColor: "rgb(255,255,255)",
         flexDirection: "row",
         paddingHorizontal: 15,
@@ -73,6 +79,15 @@ const styles = StyleSheet.create({
         width: 40,
         borderRadius: 20,
     },
+
+    iconBar:{
+        height: config.styleConstants.rowHeight,
+        width: 100 + "%",
+        borderColor: "rgb(83,83,83)",
+        borderTopWidth: StyleSheet.hairlineWidth,
+        borderBottomWidth: StyleSheet.hairlineWidth,
+        flexDirection: "row",
+    }
 })
 
 export default InstaClone;
