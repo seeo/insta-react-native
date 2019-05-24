@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, Image, Dimensions} from 'react-native';
 import config from '../../config/index.js';
+import { start } from 'repl';
 
 class InstaClone extends Component{
 
@@ -44,9 +45,19 @@ class InstaClone extends Component{
                     source = {{uri: imageUri}}
                 />
                 <View style={styles.iconBar}>
-                    <Image style = {styles.icon} source = {config.images.heartIcon} />
-                    <Image style = {styles.icon} source = {config.images.chatIcon} />
-                    <Image style = {styles.icon} source = {config.images.forwardIcon} />
+                        {/*use an array inside the style so that each icon can also have their own styles*/}
+                    <Image
+                        style = {[styles.icon, {height: 40, width: 40}]}
+                        source = {config.images.heartIcon}
+                    />
+                    <Image
+                        style = {[styles.icon, {height: 30, width: 30}]}
+                        source = {config.images.chatIcon}
+                    />
+                    <Image
+                        style = {[styles.icon, {height: 40, width: 30}]}
+                        source = {config.images.forwardIcon}
+                    />
                 </View>
             </View>
         );
@@ -87,6 +98,10 @@ const styles = StyleSheet.create({
         borderTopWidth: StyleSheet.hairlineWidth,
         borderBottomWidth: StyleSheet.hairlineWidth,
         flexDirection: "row",
+    },
+
+    icon:{
+        paddingHorizontal: 5,
     }
 })
 
