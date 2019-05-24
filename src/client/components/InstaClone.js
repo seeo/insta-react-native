@@ -9,8 +9,8 @@ class InstaClone extends Component{
             <View style = {{flex: 1, width: 100 + "%", height: 100 + "%"}}>
                 <View style = {styles.tempNav}>
                     <Text> InstaReact </Text>
-                    <PostFeed />
                 </View>
+                <PostFeed />
             </View>
         );
     }
