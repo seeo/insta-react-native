@@ -8,6 +8,19 @@ const DARK_PURPLE = "rgb(154, 0, 154)";
 const WHITE = "rgb(255,255,255)";
 
 class RegisterScreen extends Component{
+/* make a constructor and init state in the username and password so that parent can use it and
+we can store it*/
+
+    constructor(props){
+        super(props);
+        this.state = {
+            credentials: {
+                login: "",
+                password: "",
+            }
+        }
+    }
+
     register() {
         /* send credentials to server, if sign up success */
         /*navigate to switchNavigator, and then access the main key that gets mapped to MainFeed  */
@@ -32,8 +45,8 @@ class RegisterScreen extends Component{
                         backgroundColor:  LIGHT_PURPLE,
                     }}
                 >
-                    <Text>INSTA REACT</Text>
-                    <Text>(Register PAGE)</Text>
+                    <Text>Insta React</Text>
+                    <Text>REGISTER PAGE</Text>
                     <TextInput style = {styles.input} placeholder = "USERNAME"/>
                     <TextInput style = {styles.input} placeholder = "PASSWORD" secureTextEntry/>
                     <Button onPress ={() => {
