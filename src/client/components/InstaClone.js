@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {View, StyleSheet} from 'react-native';
 import {createAppContainer, createSwitchNavigator, createBottomTabNavigator} from 'react-navigation';
+import Icon from 'react-native-ionicons';
 import CameraScreen from './screens/CameraScreen';
 import LoginScreen from './screens/LoginScreen';
 import MainFeedScreen from './screens/MainFeedScreen';
@@ -13,9 +14,39 @@ import ProfileScreen from './screens/ProfileScreen';
 
  /* got a little stuck here because apparently createTabNavigator has been deprecated in v3.0 */
 const Tabs = createBottomTabNavigator({
-    feed: MainFeedScreen,
-    camera: CameraScreen,
-    profile: ProfileScreen,
+    home: {
+        screen: MainFeedScreen,
+        navigationOptions: {
+            tabBarIcon: ({tintcolor})=>(
+                <Icon name = "home" size={25}/>
+            ),
+             tabBarOptions: {
+                 showLabel: false,
+             }
+        }
+    },
+    camera: {
+        screen: CameraScreen,
+        navigationOptions: {
+            tabBarIcon: ({tintcolor})=>(
+                <Icon name = "camera" size={30}/>
+            ),
+            tabBarOptions: {
+                showLabel: false,
+            }
+        }
+    },
+    profile: {
+        screen: ProfileScreen,
+         navigationOptions: {
+            tabBarIcon: ({tintcolor})=>(
+                <Icon name = "person" size={25}/>
+            ),
+            tabBarOptions: {
+                showLabel: false,
+            }
+        }
+    },
 });
 
 /* create a container for the TabsNavigator since requirement for react-navigation v3.0 */

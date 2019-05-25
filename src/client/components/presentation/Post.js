@@ -1,3 +1,4 @@
+/* TODO : fix  'can't perform a react state update on an unmounted component' */
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, Image, Dimensions, TouchableOpacity} from 'react-native';
 import config from '../../../config/index';
