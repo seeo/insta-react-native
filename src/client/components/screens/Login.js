@@ -1,18 +1,27 @@
 import React, {Component} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
 
 class Login extends Component{
+    login() {
+        alert('Login Button works!');
+    }
+
     render(){
         return (
-            <View style ={{
-                height: 100 +"%",
-                width: 100+ "%",
-                flex: 1,
-                justifyContent: "center"
+            <TouchableOpacity
+                style ={{
+                    flex: 1,
+                    height: 100 +"%",
+                    width: 100+ "%",
+                    justifyContent: "center",
+                    alignItems: "center",
+                }}
+                onPress = {()=>{
+                    this.login()
                 }}
             >
                 <Text>LOGIN PAGE</Text>
-            </View>
+            </TouchableOpacity>
         );
     }
 }

@@ -20,7 +20,7 @@ class Post extends Component{
 
     render(){
         //did a Math.floor because want to remove long decimals which are messing up our query to the Turbo360 API
-        console.log(this.props.id);
+        console.log(this.props.item);
         const imageHeight = Math.floor(this.state.screenWidth*1.1);
         const imageSelection = this.props.item % 2 === 0 ? "https://lh3.googleusercontent.com/_0FRN6XutpXy-lLMAqdlXJELsSHMKUOGn-1rG0ZUas2Ut32QjaR0dFbUGKugWvjOlZMfKuBcHHDGX2Dlwztfym3v" :
         "https://lh3.googleusercontent.com/FAr81UhFiTHfZokqKPnDOy1NSKa1bZNETqCPg9QEnF_1vkXSPTCRSXZUIUYaCfAQ_Z8ois6SD9eArsxAllSiOSiteQ"

@@ -6,7 +6,7 @@ import Login from './screens/Login';
 class InstaClone extends Component{
     render(){
         return(
-            <MainFeed />
+                <Login />
         );
     }
 }
