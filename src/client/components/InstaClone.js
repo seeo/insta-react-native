@@ -1,32 +1,13 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, Image, Dimensions, TouchableOpacity} from 'react-native';
-import config from '../../config/index.js';
-import PostFeed from './container/PostFeed';
+import {View, StyleSheet} from 'react-native';
+import MainFeed from './screens/MainFeed';
 
 class InstaClone extends Component{
     render(){
         return(
-            <View style = {{flex: 1, width: 100 + "%", height: 100 + "%"}}>
-                <View style = {styles.tempNav}>
-                    <Text> InstaReact </Text>
-                </View>
-                <PostFeed />
-            </View>
+            <MainFeed />
         );
     }
 }
-
-const styles = StyleSheet.create({
-    tempNav: {
-        width: 100 + "%",
-        height: 56,
-        marginTop: 20,
-        backgroundColor: 'rgb(255,255,255)',
-        borderBottomColor: "rgb(83,83,83)",
-        borderBottomWidth: StyleSheet.hairlineWidth,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-})
 
 export default InstaClone;
