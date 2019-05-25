@@ -25,6 +25,7 @@ we can store it*/
     updateText(text, field){
         let newCredentials = Object.assign(this.state.credentials);
         console.log(field);
+        /*NB: field is square bracketed because a value in quote is being passed into it */
         newCredentials[field] = text;
 
         this.setState({
@@ -34,8 +35,10 @@ we can store it*/
 
     register() {
         /* send credentials to server, if sign up success */
+        /*Just want to see what is inside the credentials object, later we will export this to server*/
+        alert(JSON.stringify(this.state.credentials));
         /*navigate to switchNavigator, and then access the main key that gets mapped to MainFeed  */
-        this.props.navigation.navigate("main");
+        // this.props.navigation.navigate("main");
         /* else error message */
     }
     /*need to remmeber to put paratheses after the function if you want to call it.
@@ -62,12 +65,14 @@ we can store it*/
                         value={this.state.login}
                         placeholder = "USERNAME"
                         style = {styles.input}
+                        autoCorrect = {false}
                         onChangeText={text => this.updateText(text, "login")}
                     />
                     <TextInput
                         value = {this.state.password}
                         placeholder = "PASSWORD"
                         style = {styles.input}
+                        autoCorrect = {false}
                         onChangeText={text => this.updateText(text, "password")}
                         secureTextEntry
                     />
