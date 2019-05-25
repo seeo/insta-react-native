@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 import {View, Text, TouchableOpacity, TextInput, Button, StyleSheet} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import { whileStatement } from '@babel/types';
 
 const LIGHT_PURPLE = "rgb(193,173,234)";
 const DARK_PURPLE = "rgb(154, 0, 154)";
+const WHITE = "rgb(255,255,255)";
 
 class RegisterScreen extends Component{
     register() {
@@ -32,8 +34,8 @@ class RegisterScreen extends Component{
                 >
                     <Text>INSTA REACT</Text>
                     <Text>(Register PAGE)</Text>
-                    <TextInput style = {styles.input} />
-                    <TextInput />
+                    <TextInput style = {styles.input} placeholder = "USERNAME"/>
+                    <TextInput style = {styles.input} placeholder = "PASSWORD" secureTextEntry/>
                     <Button onPress ={() => {
                         this.register()
                     }}
@@ -46,7 +48,10 @@ class RegisterScreen extends Component{
 const styles = StyleSheet.create({
     input: {
         height: 50,
-        width: 100 +"%"
+        width: 100 +"%",
+        paddingHorizontal: 10,
+        backgroundColor: WHITE,
+        marginBottom: 10,
     },
     linearGradient:{
         flex: 1,
