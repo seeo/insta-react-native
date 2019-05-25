@@ -38,7 +38,7 @@ we can store it*/
         /*Just want to see what is inside the credentials object, later we will export this to server*/
         alert(JSON.stringify(this.state.credentials));
         /*navigate to switchNavigator, and then access the main key that gets mapped to MainFeed  */
-        // this.props.navigation.navigate("main");
+        this.props.navigation.navigate("main");
         /* else error message */
     }
     /*need to remmeber to put paratheses after the function if you want to call it.
