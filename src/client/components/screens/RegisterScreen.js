@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {View, Text, TouchableOpacity, TextInput, Button} from 'react-native';
 
-class LoginScreen extends Component{
+class RegisterScreen extends Component{
     login() {
 
         /*navigate to switchNavigator, and then access the main key that gets mapped to MainFeed  */
-        this.props.navigation.navigate("register");
+        this.props.navigation.navigate("main");
     }
     /*need to remmeber to put paratheses after the function if you want to call it.
     But without if you just want to reference it */
@@ -24,10 +24,10 @@ class LoginScreen extends Component{
                     this.login()
                 }}
             >
-                <Text>New User??</Text>
+                <Text>LOGIN PAGE</Text>
             </TouchableOpacity>
         );
     }
 }
 
-export default LoginScreen;
+export default RegisterScreen;

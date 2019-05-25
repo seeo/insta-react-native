@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import {View, StyleSheet} from 'react-native';
-import {createAppContainer, createSwitchNavigator, createBottomTabNavigator} from 'react-navigation';
+import {createAppContainer, createSwitchNavigator, createBottomTabNavigator, createStackNavigator} from 'react-navigation';
 import Icon from 'react-native-ionicons';
 import CameraScreen from './screens/CameraScreen';
 import LoginScreen from './screens/LoginScreen';
 import MainFeedScreen from './screens/MainFeedScreen';
 import ProfileScreen from './screens/ProfileScreen';
+import RegisterScreen from './screens/RegisterScreen';
 
 /* define stack and switch navigators by including each screen in its configuration with an accompanying key.
  because when we use navigation.navigate(), we will refer to these keys and not the name of the component.
@@ -52,10 +53,17 @@ const Tabs = createBottomTabNavigator({
 /* create a container for the TabsNavigator since requirement for react-navigation v3.0 */
 const TabsContainer = createAppContainer(Tabs);
 
+const IntroStack = createStackNavigator({
+    login: LoginScreen,
+    register: RegisterScreen,
+})
+
+const IntroStackContainer = createAppContainer(IntroStack);
+
  const MainStack = createSwitchNavigator({
     /*in this case, giving a key of 'login' and will map to Login screen then we want to implement going
     from login to the mainfeed */
-    login: LoginScreen,
+    intro: IntroStack,
     main: Tabs,
 });
 
