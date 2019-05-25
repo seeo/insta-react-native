@@ -3,8 +3,11 @@ import {View, Text, TouchableOpacity} from 'react-native';
 
 class Login extends Component{
     login() {
-        alert('Login Button works!');
+        //navigate to switchNavigator
+        alert('pressed');
     }
+    /*need to remmeber to put paratheses after the function if you want to call it.
+    But without if you just want to reference it */
 
     render(){
         return (
