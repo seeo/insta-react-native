@@ -54,12 +54,14 @@ const Tabs = createBottomTabNavigator({
 const TabsContainer = createAppContainer(Tabs);
 
 const IntroStack = createStackNavigator({
-    login: LoginScreen,
     register: RegisterScreen,
+    login: LoginScreen,
 })
 
 const IntroStackContainer = createAppContainer(IntroStack);
 
+/* The MainStack switch navigator will be in charge of linking the stack navigator
+and bottomTabNavigator together*/
  const MainStack = createSwitchNavigator({
     /*in this case, giving a key of 'login' and will map to Login screen then we want to implement going
     from login to the mainfeed */
