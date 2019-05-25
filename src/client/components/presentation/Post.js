@@ -85,16 +85,16 @@ class Post extends Component{
 }
 
 const styles = StyleSheet.create({
-    tempNav: {
-        width: 100 + "%",
-        height: 56,
-        marginTop: 20,
-        backgroundColor: 'rgb(255,255,255)',
-        borderBottomColor: "rgb(83,83,83)",
-        borderBottomWidth: StyleSheet.hairlineWidth,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
+    // tempNav: {
+    //     width: 100 + "%",
+    //     height: 56,
+    //     marginTop: 20,
+    //     backgroundColor: 'rgb(255,255,255)',
+    //     borderBottomColor: "rgb(83,83,83)",
+    //     borderBottomWidth: StyleSheet.hairlineWidth,
+    //     justifyContent: 'center',
+    //     alignItems: 'center',
+    // },
 
     userBar: {
         width: 100 + "%",

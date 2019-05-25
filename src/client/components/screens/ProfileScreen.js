@@ -24,7 +24,7 @@ class ProfileScreen extends Component{
                     this.login()
                 }}
             >
-                <Text>LOGIN PAGE</Text>
+                <Text>Profile Page</Text>
             </TouchableOpacity>
         );
     }

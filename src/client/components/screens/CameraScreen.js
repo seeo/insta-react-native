@@ -24,7 +24,7 @@ class CameraScreen extends Component{
                     this.login()
                 }}
             >
-                <Text>LOGIN PAGE</Text>
+                <Text>Camera PAGE</Text>
             </TouchableOpacity>
         );
     }
