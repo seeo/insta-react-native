@@ -3,7 +3,7 @@ import {View, Text, StyleSheet, Image, Dimensions, TouchableOpacity} from 'react
 import config from '../../../config/index';
 import PostFeed from '../container/PostFeed';
 
-class MainFeed extends Component{
+class MainFeedScreen extends Component{
     render(){
         return(
             <View style = {{
@@ -34,4 +34,4 @@ const styles = StyleSheet.create({
     },
 })
 
-export default MainFeed;
+export default MainFeedScreen;

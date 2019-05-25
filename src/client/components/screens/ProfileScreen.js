@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 
-class Login extends Component{
+class ProfileScreen extends Component{
     login() {
-        //navigate to switchNavigator
+         /*navigate to switchNavigator, and then access the main key that gets mapped to MainFeed  */
+        this.props.navigation.navigate("main");
         alert('pressed');
     }
     /*need to remmeber to put paratheses after the function if you want to call it.
@@ -29,4 +30,4 @@ class Login extends Component{
     }
 }
 
-export default Login;
+export default ProfileScreen;
