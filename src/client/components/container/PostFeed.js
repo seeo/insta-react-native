@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {FlatList, Text} from 'react-native';
-import {Post} from "../presentation";
+import Post from "../presentation/Post";
 
 class PostFeed extends Component{
 //create function called renderPost that will return Post

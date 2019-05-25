@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, Image, Dimensions, TouchableOpacity} from 'react-native';
 import config from '../../config/index.js';
-import {PostFeed} from './container';
+import PostFeed from './container/PostFeed';
 
 class InstaClone extends Component{
     render(){
