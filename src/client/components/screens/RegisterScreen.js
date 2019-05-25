@@ -16,10 +16,21 @@ we can store it*/
         this.state = {
             credentials: {
                 login: "",
-                password: "",
+                password: ""
             }
-        }
+        };
+        // this.updateText = this.updateText.bind(this);
     }
+    //react can't handle setState for nested updates, so we create dummy object
+    updateText(text, field){
+        let newCredentials = Object.assign(this.state.credentials);
+        console.log(field);
+        newCredentials[field] = text;
+
+        this.setState({
+            credentials: newCredentials
+        });
+    };
 
     register() {
         /* send credentials to server, if sign up success */
@@ -47,8 +58,19 @@ we can store it*/
                 >
                     <Text>Insta React</Text>
                     <Text>REGISTER PAGE</Text>
-                    <TextInput style = {styles.input} placeholder = "USERNAME"/>
-                    <TextInput style = {styles.input} placeholder = "PASSWORD" secureTextEntry/>
+                    <TextInput
+                        value={this.state.login}
+                        placeholder = "USERNAME"
+                        style = {styles.input}
+                        onChangeText={text => this.updateText(text, "login")}
+                    />
+                    <TextInput
+                        value = {this.state.password}
+                        placeholder = "PASSWORD"
+                        style = {styles.input}
+                        onChangeText={text => this.updateText(text, "password")}
+                        secureTextEntry
+                    />
                     <Button onPress ={() => {
                         this.register()
                     }}
