@@ -25,7 +25,7 @@ const TabsContainer = createAppContainer(Tabs);
     /*in this case, giving a key of 'login' and will map to Login screen then we want to implement going
     from login to the mainfeed */
     login: LoginScreen,
-    main: MainFeedScreen,
+    main: Tabs,
 });
 
 /*In react-navigation v3.0, we actually have to create a container "wrapper" around the

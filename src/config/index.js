@@ -7,6 +7,6 @@ export default {
     },
 
     styleConstants:{
-        rowHeight: 50,
+        rowHeight: 40,
     }
 };

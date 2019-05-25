@@ -20,11 +20,14 @@ class Post extends Component{
 
     render(){
         //did a Math.floor because want to remove long decimals which are messing up our query to the Turbo360 API
-        console.log(this.props.item);
-        const imageHeight = Math.floor(this.state.screenWidth*1.1);
+            console.log(this.props.item);
+        const imageHeight = Math.floor(this.state.screenWidth*1.0);
+            console.log("screen width: ", this.state.screenWidth);
+            console.log("image height: ", imageHeight);
         const imageSelection = this.props.item % 2 === 0 ? "https://lh3.googleusercontent.com/_0FRN6XutpXy-lLMAqdlXJELsSHMKUOGn-1rG0ZUas2Ut32QjaR0dFbUGKugWvjOlZMfKuBcHHDGX2Dlwztfym3v" :
         "https://lh3.googleusercontent.com/FAr81UhFiTHfZokqKPnDOy1NSKa1bZNETqCPg9QEnF_1vkXSPTCRSXZUIUYaCfAQ_Z8ois6SD9eArsxAllSiOSiteQ"
         const imageUri = imageSelection + "=s"+ imageHeight + "-c";
+            console.log(imageUri);
 
         const heartIconColor = this.state.liked ? 'rgb(252,61,57)' : null;
 
@@ -51,7 +54,7 @@ class Post extends Component{
                     }}
                     >
                     <Image
-                        style = {{width: this.state.screenWidth, height: 325}}
+                        style = {{width: this.state.screenWidth, height: imageHeight}}
                         source = {{uri: imageUri}}
                     />
                 </TouchableOpacity>
@@ -74,14 +77,7 @@ class Post extends Component{
                     />
                 </View>
                 <View style = {styles.iconBar}>
-                     <Image
-                        style = {[
-                            styles.icon,
-                            {height: 20, width: 20}
-                        ]}
-                        source = {config.images.heartIcon}
-                    />
-                    <Text>128 likes</Text>
+                    <Text style = {styles.likes}>128 likes</Text>
                 </View>
             </View>
         );
@@ -127,6 +123,10 @@ const styles = StyleSheet.create({
 
     icon:{
         marginLeft: 5,
+    },
+
+    likes: {
+        marginLeft:  10,
     },
 })
 
