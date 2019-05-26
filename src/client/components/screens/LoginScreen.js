@@ -44,7 +44,7 @@ class LoginScreen extends Component{
             console.log(JSON.stringify(jsonResponse));
             /* if the user is logged in then navigate to main page */``
             if(jsonResponse.confirmation==="success"){
-                this.props.navigation.navigate('main')
+                this.props.navigation.navigate('main');
             }else{
                 //use the backend server's error message and throw it to front end
                 throw new Error(jsonResponse.message);

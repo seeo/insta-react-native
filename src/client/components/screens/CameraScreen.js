@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { AppRegistry, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { RNCamera } from 'react-native-camera';
+import config from "../../../config/index";
 
 class CameraScreen extends Component {
   render() {
@@ -42,6 +43,31 @@ class CameraScreen extends Component {
     if (this.camera) {
       const options = { quality: 0.5, base64: true };
       const data = await this.camera.takePictureAsync(options);
+       fetch(config.baseUrl + 'users/:id/photo', {
+               method: 'POST',
+               headers: {
+                   Accept: 'application/json',
+                   'Content-Type': 'application/json',
+               },
+               body: JSON.stringify(this.state.credentials),
+           })
+           //convert the response to a json
+           .then((response) => response.json())
+           //and then log out the json string
+           .then((jsonResponse) => {
+               console.log(JSON.stringify(jsonResponse));
+               /* if the user is registered then navigate to main page */
+               if (jsonResponse.confirmation === "success") {
+                   this.props.navigation.navigate('main')
+               } else {
+                   throw new Error({
+                       message: "Sorry, something went wrong. Please try again"
+                   });
+               }
+           })
+           .catch(error => {
+               console.log(error.messsage);
+           });
       console.log(data);
     }
   };
