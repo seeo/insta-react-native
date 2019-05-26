@@ -38,13 +38,16 @@ class LoginScreen extends Component{
             body: JSON.stringify(this.state.credentials),
         })
         //convert the response to a json
-        .then((response)=>response.json())
+        .then((response) => response.json())
         //and then log out the json string
-        .then((jsonResponse)=>{
+        .then((jsonResponse) => {
             console.log(JSON.stringify(jsonResponse));
             /* if the user is logged in then navigate to main page */``
-            if(jsonResponse.confirmation==="success"){
-                this.props.navigation.navigate('main');
+            if(jsonResponse.confirmation === "success"){
+                this.props.navigation.navigate({
+                    routeName: "camera",
+                    params: {user: jsonResponse},
+                });
             }else{
                 //use the backend server's error message and throw it to front end
                 throw new Error(jsonResponse.message);
