@@ -3,9 +3,7 @@ import {View, Text, TouchableOpacity, TextInput, Button, StyleSheet} from 'react
 import LinearGradient from 'react-native-linear-gradient';
 import config from "../../../config/index";
 
-const LIGHT_PURPLE = "rgb(193,173,234)";
 const DARK_PURPLE = "rgb(154, 0, 154)";
-const WHITE = "rgb(255,255,255)";
 
 class RegisterScreen extends Component{
 /* make a constructor and init state in the username and password so that parent can use it and
@@ -79,7 +77,7 @@ we can store it*/
                         width: 100+ "%",
                         justifyContent: "center",
                         alignItems: "center",
-                        backgroundColor:  LIGHT_PURPLE,
+                        backgroundColor: config.styleConstants.LIGHT_PURPLE,
                     }}
                 >
                     <Text>Insta React</Text>
@@ -114,7 +112,7 @@ const styles = StyleSheet.create({
         height: 50,
         width: 100 +"%",
         paddingHorizontal: 10,
-        backgroundColor: WHITE,
+        backgroundColor: config.styleConstants.WHITE,
         marginBottom: 10,
     },
     linearGradient:{

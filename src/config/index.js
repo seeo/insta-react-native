@@ -10,6 +10,9 @@ export default {
 
     styleConstants:{
         rowHeight: 40,
+        LIGHT_PURPLE: "rgb(193,173,234)",
+        DARK_PURPLE: "rgb(154, 0, 154)",
+        WHITE: "rgb(255,255,255)",
     },
     /* make a variable called "baseUrl" that can handle all our requests at the backend.
     for now it will just be pointing to the turbo360 vertex url that we have successfuly

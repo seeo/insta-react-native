@@ -54,8 +54,9 @@ const Tabs = createBottomTabNavigator({
 const TabsContainer = createAppContainer(Tabs);
 
 const IntroStack = createStackNavigator({
-    register: RegisterScreen,
+    /* switched the order around, so that login comems first then register */
     login: LoginScreen,
+    register: RegisterScreen,
 })
 
 const IntroStackContainer = createAppContainer(IntroStack);
