@@ -42,18 +42,28 @@ we can store it*/
             },
             body: JSON.stringify(this.state.credentials),
         })
-            .then(data => {
-                console.log(JSON.stringify(data));
-            })
-            .catch(error=>{
-                console.log(error.messsage);
-            });
-    }
+        //convert the response to a json
+        .then((response)=>response.json())
+        //and then log out the json string
+        .then((jsonResponse)=>{
+            console.log(JSON.stringify(jsonResponse));
+            /* if the user is registered then navigate to main page */
+            if(jsonResponse.confirmation==="success"){
+                this.props.navigation.navigate('main')
+            }else{
+                throw new Error ({
+                    message: "Sorry, something went wrong. Please try again"
+                });
+            }
+        })
+        .catch(error=>{
+            console.log(error.messsage);
+        });
         // alert(JSON.stringify(this.state.credentials));
          /*navigate to switchNavigator, and then access the main key that gets mapped to MainFeed  */
         // this.props.navigation.navigate("main");
         /* else error message */
-
+}
     /*need to remmeber to put paratheses after the function if you want to call it.
     But without if you just want to reference it */
 
@@ -76,10 +86,11 @@ we can store it*/
                     <Text>REGISTER PAGE</Text>
                     <TextInput
                         value={this.state.email}
-                        placeholder = "USERNAME"
+                        placeholder = "Email Address"
                         style = {styles.input}
                         autoCorrect = {false}
                         onChangeText={text => this.updateText(text, "email")}
+                        autoCapitalize = 'none'
                     />
                     <TextInput
                         value = {this.state.password}
