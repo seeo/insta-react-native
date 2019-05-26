@@ -15,7 +15,7 @@ we can store it*/
         super(props);
         this.state = {
             credentials: {
-                login: "",
+                email: "",
                 password: ""
             }
         };
@@ -32,10 +32,20 @@ we can store it*/
             credentials: newCredentials
         });
     };
-
-    register() {
         /* send credentials to server, if sign up success */
-        /*Just want to see what is inside the credentials object, later we will export this to server*/
+    register() {
+
+        fetch('https://mywebsite.com/endpoint/', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                firstParam: 'yourValue',
+                secondParam: 'yourOtherValue',
+            }),
+        });
         alert(JSON.stringify(this.state.credentials));
         /*navigate to switchNavigator, and then access the main key that gets mapped to MainFeed  */
         this.props.navigation.navigate("main");
@@ -62,11 +72,11 @@ we can store it*/
                     <Text>Insta React</Text>
                     <Text>REGISTER PAGE</Text>
                     <TextInput
-                        value={this.state.login}
+                        value={this.state.email}
                         placeholder = "USERNAME"
                         style = {styles.input}
                         autoCorrect = {false}
-                        onChangeText={text => this.updateText(text, "login")}
+                        onChangeText={text => this.updateText(text, "email")}
                     />
                     <TextInput
                         value = {this.state.password}
