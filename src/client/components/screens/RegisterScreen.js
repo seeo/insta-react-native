@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {View, Text, TouchableOpacity, TextInput, Button, StyleSheet} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import { whileStatement } from '@babel/types';
+import config from "../../../config/index";
 
 const LIGHT_PURPLE = "rgb(193,173,234)";
 const DARK_PURPLE = "rgb(154, 0, 154)";
@@ -10,7 +10,6 @@ const WHITE = "rgb(255,255,255)";
 class RegisterScreen extends Component{
 /* make a constructor and init state in the username and password so that parent can use it and
 we can store it*/
-
     constructor(props){
         super(props);
         this.state = {
@@ -34,23 +33,27 @@ we can store it*/
     };
         /* send credentials to server, if sign up success */
     register() {
-
-        fetch('https://mywebsite.com/endpoint/', {
+        console.log(config.baseUrl + 'signup');
+        fetch(config.baseUrl + 'signup', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({
-                firstParam: 'yourValue',
-                secondParam: 'yourOtherValue',
-            }),
-        });
-        alert(JSON.stringify(this.state.credentials));
-        /*navigate to switchNavigator, and then access the main key that gets mapped to MainFeed  */
-        this.props.navigation.navigate("main");
-        /* else error message */
+            body: JSON.stringify(this.state.credentials),
+        })
+            .then(data => {
+                console.log(JSON.stringify(data));
+            })
+            .catch(error=>{
+                console.log(error.messsage);
+            });
     }
+        // alert(JSON.stringify(this.state.credentials));
+         /*navigate to switchNavigator, and then access the main key that gets mapped to MainFeed  */
+        // this.props.navigation.navigate("main");
+        /* else error message */
+
     /*need to remmeber to put paratheses after the function if you want to call it.
     But without if you just want to reference it */
 

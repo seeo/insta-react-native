@@ -10,7 +10,12 @@ export default {
 
     styleConstants:{
         rowHeight: 40,
-    }
+    },
+    /* make a variable called "baseUrl" that can handle all our requests at the backend.
+    for now it will just be pointing to the turbo360 vertex url that we have successfuly
+    deployed on the internet */
+    baseUrl: 'https://instaclone-ldysta.turbo360-vertex.com/api/',
+    // baseUrl: 'http://localhost:3000/api/'
 };
 
 
