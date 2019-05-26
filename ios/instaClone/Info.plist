@@ -57,5 +57,19 @@
 	<array>
 		<string>Ionicons.ttf</string>
 	</array>
+<key>NSCameraUsageDescription</key>
+<string>"InstaReact" Would Like to Access the Camera</string>
+
+<!-- Include this only if you are planning to use the camera roll -->
+<key>NSPhotoLibraryUsageDescription</key>
+<string>"InstaReact" Would Like to Access Your Photos</string>
+
+<key>NSPhotoLibraryAddUsageDescription</key>
+<string>"InstaReact" Would Like to Access Your Photos</string>
+
+<!-- Include this only if you are planning to use the microphone for video recording -->
+<key>NSMicrophoneUsageDescription</key>
+<string>"InstaReact" Would Like to Access the Microphone</string>
+
 </dict>
 </plist>

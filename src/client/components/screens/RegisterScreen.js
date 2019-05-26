@@ -3,8 +3,6 @@ import {View, Text, TouchableOpacity, TextInput, Button, StyleSheet} from 'react
 import LinearGradient from 'react-native-linear-gradient';
 import config from "../../../config/index";
 
-const DARK_PURPLE = "rgb(154, 0, 154)";
-
 class RegisterScreen extends Component{
 /* make a constructor and init state in the username and password so that parent can use it and
 we can store it*/
@@ -14,10 +12,11 @@ we can store it*/
             credentials: {
                 email: "",
                 password: ""
-            }
+            },
         };
         // this.updateText = this.updateText.bind(this);
     }
+
     //react can't handle setState for nested updates, so we create dummy object
     updateText(text, field){
         let newCredentials = Object.assign(this.state.credentials);
@@ -92,7 +91,7 @@ we can store it*/
                     />
                     <TextInput
                         value = {this.state.password}
-                        placeholder = "PASSWORD"
+                        placeholder = "Enter password"
                         style = {styles.input}
                         autoCorrect = {false}
                         onChangeText={text => this.updateText(text, "password")}
@@ -117,7 +116,20 @@ const styles = StyleSheet.create({
     },
     linearGradient:{
         flex: 1,
-    }
+    },
 });
 
 export default RegisterScreen;
+
+//  <TouchableOpacity
+//     activeOpacity = { 0.8 }
+//     style = { styles.visibilityBtn }
+//     onPress = {()=> {this.managePasswordVisibility()}}
+// >
+//         <Icon name = {(this.state.hidePassword)? "eye-off" : "eye" } size={25}/>
+// </TouchableOpacity>
+
+// managePaswordVisibility(){
+//         this.setState(prevState => ({
+//             hidePassword: !prevState.hidePassword
+//         }));

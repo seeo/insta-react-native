@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import {View, Text, TextInput, Button, StyleSheet} from 'react-native';
+import {View, Text, TouchableOpacity, TextInput, Button, StyleSheet} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import config from "../../../config/index";
+import Icon from 'react-native-ionicons';
 
 class LoginScreen extends Component{
   constructor(props){
@@ -45,13 +46,13 @@ class LoginScreen extends Component{
             if(jsonResponse.confirmation==="success"){
                 this.props.navigation.navigate('main')
             }else{
-                throw new Error ({
-                    message: "Sorry, something went wrong. Please try again"
-                });
+                //use the backend server's error message and throw it to front end
+                throw new Error(jsonResponse.message);
+                //throw new Error ("Sorry, something went wrong. Please try again");
             }
         })
-        .catch(error=>{
-            console.log(error.messsage);
+        .catch((error) => {
+            alert(JSON.stringify(error.message));
         });
         // alert(JSON.stringify(this.state.credentials));
          /*navigate to switchNavigator, and then access the main key that gets mapped to MainFeed  */
@@ -88,7 +89,7 @@ class LoginScreen extends Component{
                     />
                     <TextInput
                         value = {this.state.password}
-                        placeholder = "PASSWORD"
+                        placeholder = "Enter password"
                         style = {styles.input}
                         autoCorrect = {false}
                         onChangeText={text => this.updateText(text, "password")}
@@ -100,7 +101,7 @@ class LoginScreen extends Component{
                     />
                     <Button
                         onPress ={()=>{this.props.navigation.navigate('register')}}
-                        title = "Register"
+                        title = "No Account? Sign up here"
                     />
                 </View>
         );
